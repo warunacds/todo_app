@@ -1,0 +1,11 @@
+<li id="<%= dom_id(todo) %>">
+  <%= form_with model: todo, local: false do |form| %>
+    <div>
+      <%= form.check_box :completed, data: { action: "change->todo#toggle" } %>
+      <%= form.text_field :title %>
+      <%= form.submit 'Save' %>
+    </div>
+  <% end %>
+
+  <%= button_to 'Delete', todo, method: :delete, form: { data: { turbo_stream: true } } %>
+</li>

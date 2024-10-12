@@ -1,0 +1,12 @@
+<h1>Todos</h1>
+
+<%= form_with model: Todo.new, local: false do |form| %>
+  <div>
+    <%= form.text_field :title, placeholder: 'Add new todo...' %>
+    <%= form.submit 'Add' %>
+  </div>
+<% end %>
+
+<ul id="todos">
+  <%= render partial: 'todos/todo', collection: @todos %>
+</ul>
